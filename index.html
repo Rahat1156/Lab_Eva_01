@@ -17,3 +17,105 @@
     </thead>
     <tbody></tbody>
   </table>  
+
+  <h2>Add User Information</h2>
+  <form id="addForm">
+    <input type="text" placeholder="Name" id="name" required class="form-control my-2">
+    <input type="text" placeholder="ID" id="id" required class="form-control my-2">
+    <input type="number" placeholder="Marks" id="marks" required class="form-control my-2">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+
+
+
+  <h2>Modify</h2>
+  <input type="text" placeholder="Enter ID to modify" id="searchId" class="form-control w-50 my-2">
+  <button class="btn btn-warning" onclick="showPopup()">Modify</button>
+
+  <!-- Modal Popup -->
+  <div class="modal fade" id="modifyModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="modifyForm">
+          <div class="modal-header">
+            <h5 class="modal-title">Modify User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="modId">
+            <div class="mb-3">
+              <label>Name</label>
+              <input type="text" id="modName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>Marks</label>
+              <input type="number" id="modMarks" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const users = [];
+
+    document.getElementById('addForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const id = document.getElementById('id').value;
+      const marks = document.getElementById('marks').value;
+
+      users.push({ name, id, marks });
+      updateTable();
+      this.reset();
+    });
+
+    function updateTable() {
+      const tbody = document.querySelector('#userTable tbody');
+      tbody.innerHTML = '';
+      users.forEach(user => {
+        const row = `<tr><td>${user.name}</td><td>${user.id}</td><td>${user.marks}</td></tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    function showPopup() {
+      const searchId = document.getElementById('searchId').value;
+      const user = users.find(u => u.id === searchId);
+
+      if (!user) {
+        alert('User not found');
+        return;
+      }
+
+      document.getElementById('modId').value = user.id;
+      document.getElementById('modName').value = user.name;
+      document.getElementById('modMarks').value = user.marks;
+
+      const modal = new bootstrap.Modal(document.getElementById('modifyModal'));
+      modal.show();
+    }
+
+    document.getElementById('modifyForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const id = document.getElementById('modId').value;
+      const name = document.getElementById('modName').value;
+      const marks = document.getElementById('modMarks').value;
+
+      const user = users.find(u => u.id === id);
+      if (user) {
+        user.name = name;
+        user.marks = marks;
+        updateTable();
+        bootstrap.Modal.getInstance(document.getElementById('modifyModal')).hide();
+      }
+    });
+  </script>
+</body>
+</html>
