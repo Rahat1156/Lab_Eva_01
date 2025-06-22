@@ -1,0 +1,65 @@
+body {
+    background-color: #f2f4f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container-box {
+    max-width: 480px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  .form-control {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  table {
+    margin-top: 1rem;
+  }
+  
+  thead th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+  }
+  
+  tbody td {
+    text-align: center;
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  @media (max-width: 576px) {
+    .container-box {
+      padding: 1.25rem 1rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  
