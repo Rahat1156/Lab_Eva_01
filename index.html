@@ -9,9 +9,9 @@
 </head>
 <body>
   <div class="container-box">
-    <h1 class="text-center mb-4">📋 User Information Management</h1>
+    <h1 class="text-center mb-4">Student Information Management System</h1>
     <section class="section-box">
-    <h2>User Table</h2>
+    <h2>Student Table</h2>
     <table class="table table-bordered table-striped mt-2" id="userTable">
       <thead>
         <tr>
@@ -23,7 +23,7 @@
       <tbody></tbody>
     </table>
 
-    <h2>Add User Information</h2>
+    <h2>Add Student Information</h2>
     <form id="addForm">
       <input type="text" placeholder="Name" id="name" required class="form-control my-2">
       <input type="text" placeholder="ID" id="id" required class="form-control my-2">
@@ -31,7 +31,7 @@
       <button type="submit" class="btn btn-primary">Add</button>
     </form>
 
-    <h2>Modify User</h2>
+    <h2>Modify Information</h2>
     <input type="text" placeholder="Enter ID to modify" id="searchId" class="form-control my-2">
     <button class="btn btn-warning" onclick="showPopup()">Modify</button>
   </div>
@@ -42,7 +42,7 @@
       <div class="modal-content">
         <form id="modifyForm">
           <div class="modal-header">
-            <h5 class="modal-title">Modify User</h5>
+            <h5 class="modal-title">Modify Student Information</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
