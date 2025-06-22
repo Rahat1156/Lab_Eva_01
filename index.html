@@ -29,3 +29,32 @@
   <h2>Modify</h2>
   <input type="text" placeholder="Enter ID to modify" id="searchId" class="form-control w-50 my-2">
   <button class="btn btn-warning" onclick="showPopup()">Modify</button>
+
+  <!-- Modal Popup -->
+  <div class="modal fade" id="modifyModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="modifyForm">
+          <div class="modal-header">
+            <h5 class="modal-title">Modify User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="modId">
+            <div class="mb-3">
+              <label>Name</label>
+              <input type="text" id="modName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>Marks</label>
+              <input type="number" id="modMarks" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
